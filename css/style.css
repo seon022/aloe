@@ -30,10 +30,10 @@ body {
 /* 배경동영상 */
 .vid {
   position: fixed;
-  width: 100%;
   height: 100%;
   top: -10px;
   left: 0;
+  right: 0;
   opacity: 0.8;
 }
 .vid video {
@@ -43,48 +43,63 @@ body {
 /* 로고 */
 h1 {
   position: fixed;
-  top: 0px;
+  top: 20px;
   left: 50px;
-  width: 120px;
-  height: 100px;
+  width: 140px;
+  height: 130px;
   z-index: 1000;
 }
 h1 img {
   width: 100%;
   height: auto;
 }
+.downToMenu {
+  position: fixed;
+  top: 180px;
+  left: 80px;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.9);
+  transform: rotate(-90deg);
+  transition: 0.3s ease-in-out;
+}
 /* 반원 모양의 헤더 스타일 */
 .box {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -340px;
+  left: -300px;
   z-index: 100;
-  width: 280px;
-  height: 200px;
+  width: 600px;
+  height: 600px;
   background-color: rgba(255, 255, 255, 0.8);
-  border-bottom-right-radius: 96%;
+  border-radius: 50%;
   transition: 0.3s ease-in-out;
 }
 
 /* hover 시 사각형 모양으로 변경 */
 .box:hover {
-  position: fixed;
-  width: 240px;
+  top: 0;
+  left: 0;
+  width: 260px;
   height: 100%;
   border-radius: 0 0 30px 0;
 }
 
+.box:hover .downToMenu {
+  opacity: 0;
+}
+
 header {
-  display: none;
-  margin-top: 200px;
+  opacity: 0;
+  margin-top: 300px;
 }
 .box:hover header {
-  display: block;
+  opacity: 1;
 }
 
 /* 네비게이션 메뉴 스타일 */
 #gnb {
-  position: relative;
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -92,13 +107,17 @@ header {
 
 #gnb > li {
   position: relative;
-  height: 60px;
-  margin-left: 20px;
-  margin-bottom: 10px;
+  height: 80px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+#gnb > li:first-child {
+  margin-bottom: 40px;
 }
 #gnb > li > a {
   text-decoration: none;
   color: #333;
+  font-size: 24px;
   font-weight: bold;
 }
 #gnb > li:hover a {
@@ -108,27 +127,204 @@ header {
 
 /* depth2 */
 .twoDepth {
-  display: none;
+  position: absolute;
+  top: 0;
+  right: -20px;
+  opacity: 0; /* 기본적으로 투명하게 설정 */
+  visibility: hidden; /* 기본적으로 숨김 */
+  transition: opacity 0.1s, visibility 0.3s ease-out; /* 부드러운 전환 효과 추가 */
+}
+
+.twoDepth > li {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+#gnb > li:hover .twoDepth {
+  opacity: 1; /* hover 시 나타나게 함 */
+  visibility: visible; /* hover 시 보이게 함 */
+}
+
+#gnb .twoDepth li a {
+  display: block;
   position: absolute;
   top: 0;
   right: -80px;
-}
-.twoDepth > li {
-  width: 100%;
-  margin-bottom: 10px;
-}
-#gnb li:hover .twoDepth {
-  display: block;
   width: 80px;
-  height: 100%;
-}
-
-.twoDepth li a {
-  display: block;
   line-height: 40px;
   padding-right: 20px;
   text-align: right;
   border-radius: 0 10px 10px 0;
-  color: #666;
+  color: #333;
   background-color: rgba(255, 255, 255, 0.8);
+  transition: opacity 0.3s; /* 부드러운 전환 효과 추가 */
+}
+
+#gnb .twoDepth li:hover a {
+  opacity: 1;
+}
+
+/* sns 버튼 모음*/
+#sns {
+  position: fixed;
+  top: 30px;
+  right: 50px;
+  display: flex;
+}
+#sns li {
+  margin-right: 30px;
+}
+#sns li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+  color: #ffffff;
+  opacity: 0.5;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+#sns li a:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* 텍스트 박스 */
+.txtBox {
+  width: 640px;
+  height: 280px;
+  position: fixed;
+  top: 160px;
+  right: 4%;
+  font-weight: 900;
+}
+.txt {
+  font-size: 34px;
+  color: #fff;
+}
+.txt b {
+  color: #2c9956;
+  margin-left: 20px;
+}
+.tit {
+  font-size: 70px;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+/* contents 레이아웃 */
+#side {
+  width: 800px;
+  height: 800px;
+  position: fixed;
+  bottom: 0px;
+  right: -660px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0.7;
+  transition: all 0.5s;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#side:hover {
+  right: -440px;
+  opacity: 0.8;
+}
+#side .con {
+  width: 680px;
+  height: 680px;
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  margin-top: -340px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-sizing: border-box;
+  padding: 10px;
+  transition: all 1s;
+}
+#side:hover .con {
+  left: 50px;
+}
+
+/* contents내 썸네일 */
+#side .con > div:first-child {
+  margin-top: 130px;
+}
+#side .con > div {
+  width: 200px;
+  margin-left: 80px;
+  margin-bottom: 18px;
+}
+#side .con > div > p {
+  margin-bottom: 6px;
+  font-weight: 800;
+  font-size: 18px;
+  color: #52bd7b;
+}
+#side .con > div a {
+  display: block;
+  width: 200px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 40px;
+}
+#side .con > div a img {
+  display: block;
+  width: auto;
+  height: 100%;
+  opacity: 0.5;
+  margin: 0 auto;
+  transition: all 0.5s;
+}
+#side .con > div:hover p {
+  color: #01762e;
+  opacity: 1;
+}
+#side .con > div:hover img {
+  opacity: 1;
+}
+
+/* 자동롤링 버튼*/
+#side .btnContents {
+  width: 150px;
+  height: 80px;
+  position: absolute;
+  bottom: 50%;
+  left: 10px;
+  color: #e8ffdf;
+}
+#side:hover .btnContents,
+.btnContents:hover .btnContents {
+  left: -1000px;
+}
+.btnContents i {
+  font-size: 60px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  opacity: 1;
+}
+.btnContents i:nth-child(1) {
+  animation: ani linear 1.5s 0s infinite;
+}
+.btnContents i:nth-child(2) {
+  animation: ani linear 1.5s 0.5s infinite;
+}
+.btnContents i:nth-child(3) {
+  animation: ani linear 1.5s 1s infinite;
+}
+
+@keyframes ani {
+  0% {
+    right: 0px;
+    transform: sclae(1);
+    opacity: 1;
+  }
+  100% {
+    right: 100px;
+    transform: scale(1.5);
+    opacity: 0.2;
+  }
 }
