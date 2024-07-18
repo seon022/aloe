@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+a {
+  outline: 0;
+  text-decoration: none;
+  color: #bbb;
+}
+img {
+  border: 0;
+}
+body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #141414;
+  font-family: "Play", "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* 배경동영상 */
+.vid {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -10px;
+  left: 0;
+  opacity: 0.8;
+}
+.vid video {
+  width: 100%;
+  min-width: 1600px;
+}
+/* 로고 */
+h1 {
+  position: fixed;
+  top: 0px;
+  left: 50px;
+  width: 120px;
+  height: 100px;
+  z-index: 1000;
+}
+h1 img {
+  width: 100%;
+  height: auto;
+}
+/* 반원 모양의 헤더 스타일 */
+.box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 280px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom-right-radius: 96%;
+  transition: 0.3s ease-in-out;
+}
+
+/* hover 시 사각형 모양으로 변경 */
+.box:hover {
+  position: fixed;
+  width: 240px;
+  height: 100%;
+  border-radius: 0 0 30px 0;
+}
+
+header {
+  display: none;
+  margin-top: 200px;
+}
+.box:hover header {
+  display: block;
+}
+
+/* 네비게이션 메뉴 스타일 */
+#gnb {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#gnb > li {
+  position: relative;
+  height: 60px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+#gnb > li > a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+#gnb > li:hover a {
+  color: #111;
+  font-weight: 900;
+}
+
+/* depth2 */
+.twoDepth {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: -80px;
+}
+.twoDepth > li {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#gnb li:hover .twoDepth {
+  display: block;
+  width: 80px;
+  height: 100%;
+}
+
+.twoDepth li a {
+  display: block;
+  line-height: 40px;
+  padding-right: 20px;
+  text-align: right;
+  border-radius: 0 10px 10px 0;
+  color: #666;
+  background-color: rgba(255, 255, 255, 0.8);
+}
